@@ -3,7 +3,10 @@
 ## Step-00: Introduction
 - Install AWS CLI - For Login to the AWS Accounts 
 - Install kubectl CLI - For managing the Kuberenets 
-- Install eksctl CLI - For managing the EKS cluster ( We can create using the UI also ) = For automate the EKS 
+- Install eksctl CLI - For managing the EKS cluster ( We can create using the UI also ) = For automate the EKS is used 
+-                      We can create Autoscale and delete the node group
+-                      We ca create the Fargate Profile using eksctl
+-                       
 
 ## Step-01: Install AWS CLI
 - Reference-1: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html
