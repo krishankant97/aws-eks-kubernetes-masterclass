@@ -44,7 +44,7 @@
 eksctl create cluster --name=eksdemo1 \
                       --region=us-east-1 \
                       --zones=us-east-1a,us-east-1b \
-                      --without-nodegroup 
+                      --without-nodegroup (m4 large it create if not define here)
 
 # Get List of clusters
 eksctl get cluster                  
@@ -72,6 +72,8 @@ eksctl utils associate-iam-oidc-provider \
 
 
 ## Step-03: Create EC2 Keypair
+
+If we want to access the worker node then we need to create the EC2 KeyPair
 - Create a new EC2 Keypair with name as `kube-demo`
 - This keypair we will use it when creating the EKS NodeGroup.
 - This will help us to login to the EKS Worker Nodes using Terminal.
