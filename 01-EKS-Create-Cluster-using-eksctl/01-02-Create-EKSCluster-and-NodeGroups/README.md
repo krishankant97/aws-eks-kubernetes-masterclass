@@ -2,11 +2,36 @@
 
 ## Step-00: Introduction
 - Understand about EKS Core Objects
-  - Control Plane
-  - Worker Nodes & Node Groups
-  - Fargate Profiles
-  - VPC
-- Create EKS Cluster
+  - Control Plane - Master Node in K8 architecture ( etcd/api-server/Kube Controller) (Maintain by the AWS) (HA provided by the AWS)
+  - This is not shared across the AWS Account
+  - 2 API Server and 3 etdc that run across the A-Z
+  - EKS Automatically detect unhealthy control plane instance and restart them across the A-Z
+
+  - Worker Nodes & Node Groups (Group of EC2 Instance where we run the applications ) 
+  - => AMI Specifically designed for this to connect with the Control Plane
+  - Just like the Normal EC2 instance
+  - Using the Cluster server API Endpoint we can connect to the Weoker Node to the Control Place
+  - We can automatically scale up-down according to the work loads
+  - All having the same AMI
+  - All is the same Instance Type
+
+  - Fargate Profiles (Serverless) No need to provision the RAM/CPU (Just Deploy the applicaions No need to manage the resources),
+  -  No resource wastage here
+  -  On demand resource for the Contianers
+  -  No need to provision / Scale / VM To run the containers
+  -  No need to scale the servers
+  -  Not share the CPU Resource with the other Pod
+
+
+  - VPC ( For security of the applicaion we can run the applicaion inside the VPC) , We can deploy workload on public subent and Frgate only run on private subent
+         (Public / Private Subnet )-  If we deploy the worknode on Private VPC then how we can access them using NAT gateway 
+         Cluster API will controll
+         Other AWS account we cannot share the VPC componment
+         Highly secure / reliable for deployment
+
+- Create EKS Cluster (Control Plane) => Deploy the NodeGroup => Connect to EKS (KUBECTL CLI) => Run App on K8 cluster
+
+
 - Associate EKS Cluster to IAM OIDC Provider
 - Create EKS Node Groups
 - Verify Cluster, Node Groups, EC2 Instances, IAM Policies and Node Groups
