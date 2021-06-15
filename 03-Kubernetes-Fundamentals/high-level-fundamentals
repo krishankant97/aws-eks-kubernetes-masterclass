@@ -1,0 +1,43 @@
+1 - Pod - Smallest Object we can create
+
+2 - Replica set - Gurantee the pods in the deployment 
+
+3 - Deployment - Rollout and Rollback is features - for the stateless applicioan
+
+4 - Service - It act as the load balancer that sit in front of the pod 
+
+We can create the object using the Impretive and the declrative way 
+
+means using the commands and using the yaml file to create the oobjects 
+
+Pod - 
+
+Our goal is to deploy the application in form of the container on the worker node 
+
+Kuberenets not directly deploy the container directly 
+
+Container is encaspulated inside the Kuberenetes object called the pod
+
+Pod is single instance of the applicaion
+
+generally we have 1 container per pod
+
+If traffic grow we can scale applicaion in form of pod we need to scale the pod insted to scale the container insdie the pod 
+
+We not have multiple container inside the 1 pod
+
+Multi container Pod - 
+
+In some case we have multi contianer inside the pod
+
+They are not of same kind
+
+like 1 container is Nginx 
+2 is healper container - Sidecar contianer - data puller/pusher/proxy
+They pull data from pod or push the data .
+Proxy = like for putting the html/image to serve to the main container 
+
+When we use multi contianer pod - 2 container easily connect each other as they share same network and also volume they can share easily 
+
+
+
